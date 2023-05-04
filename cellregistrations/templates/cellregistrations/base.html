@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Community Group{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fffbf8; /* Creamy background color */
+            font-family: 'Lato', sans-serif /* Professional font */
+        
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .logo img {
+            max-width: 200px;
+            height: auto;
+            width: 100%
+        }
+        .registration-form-wrap {
+        padding: 30px 0 50px;
+        min-height: 82vh;
+        }
+        .registration-form-wrap h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        }
+        .registration-form {
+        width: 90%;
+        max-width: 960px;
+        margin: 0px auto;
+        position: relative;
+        }    
+        .registration-form .tab {
+        background: white;
+        border: 0 none;
+        border-radius: 3px;
+        box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+        padding: 50px 40px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+        }  
+        .fs-title {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #2C3E50;
+        margin-bottom: 10px;
+        text-align: center;
+        } 
+        .form-label{
+        font-size: 13px;
+        margin-bottom: 7px;
+        margin-left: 7px;
+         
+        }
+        .form-check-label{
+            display: inline-block;
+            text-align: left;
+            font-size: 12px;
+        }
+        
+        .registration-form .tab .button{
+        width: auto;
+        background: blue;
+        font-weight: bold;
+        color: white;
+        border: 0px none;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 10px 25px;
+        margin: 10px;
+        }
+        .form-select, .form-control{
+            padding: 10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 7px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Lato, sans-serif;
+    color: rgb(44, 62, 80);
+    font-size: 13px;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="/media/dominioncity.png" alt="Dominion-city logo">
+        </div>
+        
+        
+        
+        {% block content %}{% endblock %}
+    
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'cellregistrations/base.html' %}
+
+{% block content %}
+  <h1>{{ group.name }}</h1>
+  <p>{{ group.description }}</p>
+
+  <h2>Sub-Communities</h2>
+  <ul>
+    {% for subcommunity in group.subcommunities.all %}
+      <li><a href="{% url 'personal_details_create' sub_community_id=sub_community.id %}">{{ subcommunity.name }}</a></li>
+    {% empty %}
+      <li>No sub-communities found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

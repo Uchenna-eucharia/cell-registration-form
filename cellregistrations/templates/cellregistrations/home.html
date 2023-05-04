@@ -1,0 +1,92 @@
+{% extends 'cellregistrations/base.html' %}
+
+
+{% block content %}
+<style>
+
+    .content-wrap {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0px auto;
+    }
+    .content-wrap > p {
+    margin-bottom: 10px;
+    }
+    p {
+    position: relative;
+    display: block;
+    font-weight: 300;
+    padding: 10px 0 0 0;
+    cursor: pointer;
+    line-height: 150%;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #6c757d;
+    }
+
+    .accordion {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    background-color: #f9f9fa;
+    }
+    .accordion-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding: 10px;
+    margin: 0 auto 5px auto;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    }
+    .accordion-button{
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    }
+    .accordion-body a {
+    color: #333;
+    line-height: 35px;
+    text-decoration: none;
+    display: inline-block;
+
+}
+</style>
+        <div class="registration-form-wrap">
+            <h1> Start Registration</h1>
+            <div class="content-wrap">
+                <p class="text-center">
+                    To begin registration, click on a community to expand it and then select the group you wish to join
+                </p>
+
+            <div class="accordion" id="accordionExample">
+                {% for group in groups %}
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="heading{{ group.id }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ group.id }}" aria-expanded="false" aria-controls="collapse{{ group.id }}">
+                            {{ group.name }}
+                        </button>
+                    </h3>
+                    <div id="collapse{{ group.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ group.id }}" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {% for sub_community in group.subcommunity_set.all %}
+                            <a href="{% url 'personal_details_create' sub_community.id %}">{{ sub_community.name }}</a><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+
+
+

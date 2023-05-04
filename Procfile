@@ -1,0 +1,1 @@
+web gunicorn cellregistration.wsgi:application --log-file -

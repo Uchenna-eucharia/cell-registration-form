@@ -1,0 +1,21 @@
+{% extends 'cellregistrations/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="registration-form-wrap">
+  <h1>Registration: {{ sub_community.name }}</h1>
+  <div class="registration-form">
+    <div class="tab">
+      <h2 class="fs-title">personal details</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="hidden" name="sub_community_id" value="{{ sub_community.id }}">
+        <button class="button" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}
